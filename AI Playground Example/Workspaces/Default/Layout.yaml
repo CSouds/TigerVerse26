@@ -1,0 +1,59 @@
+dock:
+  isLocked: false
+  main:
+    items:
+      - items:
+          - items:
+              - persistentName: Snap.Plugin.Gui.SceneHierarchyEditor
+                Uuid: 6778142c-0629-4c2a-afc3-92a65ce29e1a
+            type: section
+            current: 0
+          - items:
+              - persistentName: Snap.Plugin.Gui.AssetBrowser
+                Uuid: cd11ace2-8507-4965-a068-d85c26031a6b
+            type: section
+            current: 0
+        sizes:
+          - 443
+          - 425
+        type: splitter
+        orientation: vertical
+      - items:
+          - items:
+              - persistentName: Snap.Plugin.Gui.SceneEditor
+                Uuid: a14d85d7-9a15-42a6-913e-3f24dea267c2
+              - persistentName: Snap.Plugin.Gui.InspectorPanel
+                Uuid: 780d9164-e681-4de1-b586-5213ed5523b9
+            type: section
+            current: 1
+          - items:
+              - persistentName: Snap.Plugin.Gui.LoggerPanel
+                Uuid: 81de965d-0c94-4d28-82cf-901740003a1f
+              - persistentName: snap.plugin.gui.typescript_status_panel
+                Uuid: f014b40a-1a0f-4d59-8e83-4eb676cd9e6b
+            type: section
+            current: 0
+        sizes:
+          - 443
+          - 425
+        type: splitter
+        orientation: vertical
+      - items:
+          - persistentName: Snap.Plugin.Gui.AssetLibraryPanel
+            Uuid: 4e52d675-90da-4542-b425-db53aea0d19b
+        type: section
+        current: 0
+      - items:
+          - persistentName: Snap.Plugin.Gui.PreviewPanel
+            Uuid: 52fc2a95-41a3-427b-a138-1e00eb1c405e
+          - persistentName: Snap.Plugin.AssistantAI.Panel
+            Uuid: 5cb1b964-b629-4cc7-8bd7-ef715f7a871a
+        type: section
+        current: 0
+    sizes:
+      - 269
+      - 278
+      - 80
+      - 826
+    type: splitter
+    orientation: horizontal

@@ -1,0 +1,15 @@
+# Lens Studio temporary files
+/Temp/
+/Library/
+
+# Log files
+*.log
+# If you have specific log directories, add them here
+# Log/
+
+# Optional: Ignore local user settings if needed
+# /User/
+
+# OS specific files
+.DS_Store
+Thumbs.db
