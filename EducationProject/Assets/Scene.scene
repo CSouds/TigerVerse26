@@ -5257,7 +5257,10 @@
   Enabled: true
   ScriptAsset: !<reference> 0373fa06-b7a9-4706-9a97-64bd55e69aa0
   ScriptInputsDefault:
+    handSide: true
     facingThreshold: true
+    positionOffset: true
+    matchRotation: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -5265,7 +5268,10 @@
       hudContainer: !<reference.SceneObject> c5b84679-75a9-4c01-9000-309fbce4e5bc
       palmCenter: !<reference.SceneObject> 2b48df55-44c4-4516-b674-91f4c5d5481b
       cameraObject: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      handSide: !<float> 0.000000
       facingThreshold: -0.500000
+      positionOffset: !<Vec3> {x: 0.000000, y: 10.000000, z: 0.000000}
+      matchRotation: false
   ScriptTypes:
     "":
       {}

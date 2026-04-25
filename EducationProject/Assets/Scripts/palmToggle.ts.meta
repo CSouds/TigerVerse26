@@ -28,8 +28,11 @@
   ScriptInputsHidden:
     cameraObject: false
     facingThreshold: false
+    handSide: false
     hudContainer: false
+    matchRotation: false
     palmCenter: false
+    positionOffset: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -42,7 +45,10 @@
     - hudContainer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       palmCenter: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       cameraObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      handSide: !<float> 0.000000
       facingThreshold: -0.500000
+      positionOffset: !<Vec3> {x: 0.000000, y: 10.000000, z: 0.000000}
+      matchRotation: false
   ScriptTypes:
     -
       {}
@@ -50,4 +56,7 @@
     - // @input SceneObject hudContainer
     - // @input SceneObject palmCenter
     - // @input SceneObject cameraObject
-    - // @input float facingThreshold = -0.5
+    - '// @input float handSide {"hint":"Which hand to track for visibility gating.", "widget":"combobox", "values":[{"label":"left", "value":0}, {"label":"right", "value":1}]}'
+    - '// @input float facingThreshold = -0.5 {"hint":"Dot product threshold. Palm facing camera when dot < threshold (typical: -0.5)."}'
+    - '// @input vec3 positionOffset = {0,10,0} {"hint":"World-space offset from the palm to the HUD (Y+ floats it above the hand)."}'
+    - '// @input bool matchRotation {"hint":"If true, HUD rotation matches the palm rotation."}'

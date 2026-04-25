@@ -55,7 +55,7 @@ export class PalmToggle extends BaseScriptComponent {
     checkPalmVisibility() {
         if (!this.hudContainer || !this.palmCenter || !this.cameraObject) return;
 
-        if (!this.hand || !this.hand.isTracked) {
+        if (!this.hand || !this.hand.isTracked()) {
             if (this.hudContainer.enabled) {
                 this.hudContainer.enabled = false;
             }
