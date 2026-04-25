@@ -1,10 +1,43 @@
-- !<ObjectPrefab/2de75a7f-4b4e-4a89-a179-8088a326c326>
+- !<ObjectPrefab/0f6b27f6-15bb-4ac0-8590-d599ba523f04>
   PackagePath: ""
   objects:
-    - !<own> 7ff4192b-cc32-4ff8-9e7d-de56f79d3717
+    - !<own> 1fbec607-e375-4513-afcf-e9841d7acace
   LazyLoading: false
   RetainAssets: true
-- !<RenderMeshVisual/04436c14-e093-4d23-a1e6-214401fbf3ca>
+- !<SceneObject/1fbec607-e375-4513-afcf-e9841d7acace>
+  PrefabRemaps:
+    - 1fbec607-e375-4513-afcf-e9841d7acace: 1fbec607-e375-4513-5030-167be2853531
+    - 2b369552-bbcc-4b88-8565-a48ee5175032: 2b369552-bbcc-4b88-7a9a-5b711ae8afcd
+    - ae1cb9c8-a78d-4173-81d3-89dda817a47d: ae1cb9c8-a78d-4173-7e2c-762257e85b82
+    - ec1be360-7533-477a-b673-78074b8fd2d3: ec1be360-7533-477a-498c-87f8b4702d2c
+  Name: i
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 70.000000, y: 0.000000, z: -50.000000}
+    Rotation: {x: 90.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 2.500000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 2b369552-bbcc-4b88-8565-a48ee5175032
+  Components:
+    - !<own> ae1cb9c8-a78d-4173-81d3-89dda817a47d
+- !<SceneObject/2b369552-bbcc-4b88-8565-a48ee5175032>
+  PrefabRemaps:
+    []
+  Name: iImage
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.540000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 4.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ec1be360-7533-477a-b673-78074b8fd2d3
+- !<RenderMeshVisual/ae1cb9c8-a78d-4173-81d3-89dda817a47d>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -24,40 +57,7 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<SceneObject/62972bd5-e84f-47df-a43b-ac7cea96b911>
-  PrefabRemaps:
-    []
-  Name: iImage
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.540000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 4.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> f67a1791-b907-4c7b-a6df-5abb2287023f
-- !<SceneObject/7ff4192b-cc32-4ff8-9e7d-de56f79d3717>
-  PrefabRemaps:
-    - 04436c14-e093-4d23-a1e6-214401fbf3ca: 04436c14-e093-4d23-5e19-debbfe040c35
-    - 62972bd5-e84f-47df-a43b-ac7cea96b911: 62972bd5-e84f-47df-5bc4-5383156946ee
-    - 7ff4192b-cc32-4ff8-9e7d-de56f79d3717: 7ff4192b-cc32-4ff8-6182-21a90862c8e8
-    - f67a1791-b907-4c7b-a6df-5abb2287023f: f67a1791-b907-4c7b-5920-a544dd78fdc0
-  Name: i
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 1.557190, y: -0.125000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 0.250000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 62972bd5-e84f-47df-a43b-ac7cea96b911
-  Components:
-    - !<own> 04436c14-e093-4d23-a1e6-214401fbf3ca
-- !<RenderMeshVisual/f67a1791-b907-4c7b-a6df-5abb2287023f>
+- !<RenderMeshVisual/ec1be360-7533-477a-b673-78074b8fd2d3>
   PrefabRemaps:
     []
   Name: Render Mesh Visual

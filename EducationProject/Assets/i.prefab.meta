@@ -1,25 +1,55 @@
-- !<AssetImportMetadata/9661c827-3df9-4b94-90dc-091b7b15ca20>
+- !<AssetImportMetadata/fe5e1d36-7e7e-4a45-b8cd-b433b1b5be4a>
   ImportedAssetIds:
-    ObjectPrefab: !<reference> 2de75a7f-4b4e-4a89-a179-8088a326c326
+    ObjectPrefab: !<reference> 0f6b27f6-15bb-4ac0-8590-d599ba523f04
   ImporterName: ObjectPrefabImporter
-  PrimaryAsset: !<reference> 2de75a7f-4b4e-4a89-a179-8088a326c326
+  PrimaryAsset: !<reference> 0f6b27f6-15bb-4ac0-8590-d599ba523f04
   PackageType: NotAPackage
   LegacyPackagePolicy: ~
   ExtraData:
     {}
   AssetDataMap:
-    ObjectPrefab: !<own> 007e5f2b-4da0-4ad4-b4dd-77b76d7795f1
+    ObjectPrefab: !<own> a424dad4-4d6e-4802-8708-896502a0c8fa
   DependentFiles:
     []
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
-- !<ObjectPrefabAssetData/007e5f2b-4da0-4ad4-b4dd-77b76d7795f1>
-  Prototype: !<ObjectOwner/3944c948-5d60-4888-b18b-a6a4832a9bf7>
+- !<SceneObject/1fbec607-e375-4513-5030-167be2853531>
+  PrefabRemaps:
+    []
+  Name: i
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 70.000000, y: 0.000000, z: -50.000000}
+    Rotation: {x: 90.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 2.500000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 2b369552-bbcc-4b88-7a9a-5b711ae8afcd
+  Components:
+    - !<own> ae1cb9c8-a78d-4173-7e2c-762257e85b82
+- !<SceneObject/2b369552-bbcc-4b88-7a9a-5b711ae8afcd>
+  PrefabRemaps:
+    []
+  Name: iImage
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.540000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 4.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ec1be360-7533-477a-498c-87f8b4702d2c
+- !<ObjectPrefabAssetData/a424dad4-4d6e-4802-8708-896502a0c8fa>
+  Prototype: !<ObjectOwner/f97f4df3-5c6c-48d7-8070-d1abd57be4b4>
     PackagePath: ""
     objects:
-      - !<own> 7ff4192b-cc32-4ff8-6182-21a90862c8e8
-- !<RenderMeshVisual/04436c14-e093-4d23-5e19-debbfe040c35>
+      - !<own> 1fbec607-e375-4513-5030-167be2853531
+- !<RenderMeshVisual/ae1cb9c8-a78d-4173-7e2c-762257e85b82>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
@@ -39,37 +69,7 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<SceneObject/62972bd5-e84f-47df-5bc4-5383156946ee>
-  PrefabRemaps:
-    []
-  Name: iImage
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.540000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 4.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> f67a1791-b907-4c7b-5920-a544dd78fdc0
-- !<SceneObject/7ff4192b-cc32-4ff8-6182-21a90862c8e8>
-  PrefabRemaps:
-    []
-  Name: i
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 1.557190, y: -0.125000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 0.250000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 62972bd5-e84f-47df-5bc4-5383156946ee
-  Components:
-    - !<own> 04436c14-e093-4d23-5e19-debbfe040c35
-- !<RenderMeshVisual/f67a1791-b907-4c7b-5920-a544dd78fdc0>
+- !<RenderMeshVisual/ec1be360-7533-477a-498c-87f8b4702d2c>
   PrefabRemaps:
     []
   Name: Render Mesh Visual
