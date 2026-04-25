@@ -4,6 +4,9 @@ import { OpenAI } from 'RemoteServiceGateway.lspkg/HostedExternal/OpenAI';
 export class ShowFeedback extends BaseScriptComponent {
 
     @input
+    iIcon!: SceneObject;
+
+    @input
     interactable!: any;
 
     @input
@@ -12,65 +15,133 @@ export class ShowFeedback extends BaseScriptComponent {
     @input
     textBubbleContainer!: SceneObject;
 
+    @input
+    cameraFeed!: Texture;
+
+    @input
+    @hint("Seconds between scans.")
+    scanInterval: number = 5.0;
+
+    private isChecking: boolean = false;
+    private latestFeedback: string = "";
+
     onAwake() {
-        // Hide the bubble when the lens starts
+        if (this.iIcon) {
+            this.iIcon.enabled = false;
+        }
         if (this.textBubbleContainer) {
             this.textBubbleContainer.enabled = false;
         }
 
-        // Make sure interactable exists, then bind the trigger
-        if (this.interactable && this.interactable.onTriggerStart) {
-            this.interactable.onTriggerStart.add(() => {
-                this.displayFeedback();
-            });
-        } else {
-            print("ShowFeedback: Interactable not linked or missing onTriggerStart.");
-        }
+        this.createEvent("OnStartEvent").bind(() => {
+            this.bindPinch();
+            this.startScanLoop();
+        });
     }
 
-    // Notice the 'async' keyword here! This allows us to wait for the API.
-    async displayFeedback() {
-        
-        // 1. Immediately show the bubble with a loading state
+    private bindPinch() {
+        if (!this.interactable) {
+            print("ShowFeedback: Interactable not linked.");
+            return;
+        }
+        this.interactable.onTriggerStart.add(() => {
+            this.revealBubble();
+        });
+    }
+
+    private startScanLoop() {
+        const scanTimer = this.createEvent("DelayedCallbackEvent");
+        scanTimer.bind(() => {
+            this.performContinuousScan();
+            scanTimer.reset(this.scanInterval);
+        });
+        scanTimer.reset(this.scanInterval);
+    }
+
+    private revealBubble() {
+        if (!this.iIcon || !this.iIcon.enabled) return;
+        if (this.textComponent) {
+            this.textComponent.text = this.latestFeedback;
+        }
         if (this.textBubbleContainer) {
             this.textBubbleContainer.enabled = true;
         }
-        if (this.textComponent) {
-            this.textComponent.text = "Thinking..."; 
-        }
+    }
 
-        // 2. Call the AI inside a try/catch block
+    private showMistake(feedback: string) {
+        this.latestFeedback = feedback;
+        if (this.iIcon) {
+            this.iIcon.enabled = true;
+        }
+    }
+
+    private clearMistake() {
+        this.latestFeedback = "";
+        if (this.iIcon) {
+            this.iIcon.enabled = false;
+        }
+        if (this.textBubbleContainer) {
+            this.textBubbleContainer.enabled = false;
+        }
+    }
+
+    async performContinuousScan() {
+        if (this.isChecking) return;
+        this.isChecking = true;
+        print("[Scan] Capturing frame and sending to AI...");
+
         try {
+            const base64Image = await new Promise<string>((resolve, reject) => {
+                Base64.encodeTextureAsync(
+                    this.cameraFeed,
+                    (res: string) => resolve(res),
+                    () => reject("Camera frame encoding failed"),
+                    CompressionQuality.LowQuality,
+                    EncodingType.Jpg
+                );
+            });
+
+            const dataUri = `data:image/jpeg;base64,${base64Image}`;
+
             const response = await OpenAI.chatCompletions({
-                model: 'gpt-4.1-nano',
+                model: 'gpt-4o',
                 messages: [
                     {
                         role: 'system',
-                        content: "You are a math assistant. Keep your response to one short sentence."
+                        content: "You are a math tutor. Review the math in the provided image. If there is a mistake, reply ONLY with a short correction. If the math is correct, or if there is no math visible, reply with the exact word: CORRECT."
                     },
                     {
                         role: 'user',
-                        content: 'What is the square root of 144?' // (You will swap this with the actual math problem later)
+                        content: [
+                            { type: "text", text: "Check this math." },
+                            {
+                                type: "image_url",
+                                image_url: { url: dataUri }
+                            }
+                        ]
                     }
                 ],
-                temperature: 0.7,
+                temperature: 0.2,
             });
 
-            // 3. Extract the answer safely
-            const answer = response?.choices?.[0]?.message?.content ?? "Sorry, I couldn't process that.";
-            print("[RSG_TEST] AI Responded: " + answer);
+            const answer = response?.choices?.[0]?.message?.content?.trim() ?? "CORRECT";
+            print("[Scan] AI Response: " + answer);
 
-            // 4. Update the text bubble with the real answer
-            if (this.textComponent) {
-                this.textComponent.text = answer;
+            if (this.isCorrectResponse(answer)) {
+                this.clearMistake();
+            } else {
+                this.showMistake(answer);
             }
 
         } catch (error) {
-            // If the Wi-Fi drops or the API fails, handle it gracefully
-            print("[RSG_TEST] Error: " + error);
-            if (this.textComponent) {
-                this.textComponent.text = "Error connecting to AI.";
-            }
+            print("[Scan] Error: " + error);
+        } finally {
+            this.isChecking = false;
         }
+    }
+
+    private isCorrectResponse(answer: string): boolean {
+        const normalized = answer.toUpperCase().replace(/[.\s]/g, "");
+        return normalized === "CORRECT";
     }
 }

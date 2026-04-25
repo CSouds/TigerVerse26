@@ -26,7 +26,7 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    interactable: false
+    cameraFeed: false
     textBubbleContainer: false
     textComponent: false
   ScriptTypesHidden:
@@ -38,13 +38,13 @@
   Attachments:
     []
   DefaultScriptInputs:
-    - interactable: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
-      textComponent: !<reference.Text> 00000000-0000-0000-0000-000000000000
+    - textComponent: !<reference.Text> 00000000-0000-0000-0000-000000000000
       textBubbleContainer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      cameraFeed: !<reference.Texture> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
-    - // @input AssignableType interactable
     - // @input Component.Text textComponent
     - // @input SceneObject textBubbleContainer
+    - // @input Asset.Texture cameraFeed

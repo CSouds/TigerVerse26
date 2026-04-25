@@ -630,9 +630,9 @@
     {}
   ScriptInputs:
     "":
-      interactable: !<MappingBased.AssignableType> 2c726da7-30b6-4ef5-8b76-5c3d6ec9b319
       textComponent: !<reference.Text> 19130143-8de2-4c51-bb45-337288e56b49
       textBubbleContainer: !<reference.SceneObject> 07229d21-f154-4e7c-afc2-58c995add23e
+      cameraFeed: !<reference.Texture> 996c6f4e-b2ad-4117-9e3e-3db82e6e97f5
   ScriptTypes:
     "":
       {}
