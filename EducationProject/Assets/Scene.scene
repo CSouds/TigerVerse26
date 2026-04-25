@@ -335,7 +335,7 @@
   PrefabRemaps:
     []
   Name: responseText
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: -2.000000}
@@ -2388,27 +2388,6 @@
     - !<own> eeefed81-5683-4d40-9498-fd8984e6e8f6
   Components:
     []
-- !<ScriptComponent/5c599666-945a-4bc6-a928-3308639e847f>
-  PrefabRemaps:
-    []
-  Name: showFeedback
-  Enabled: true
-  ScriptAsset: !<reference> 099b64a3-7f57-4e99-8108-5a6014438b83
-  ScriptInputsDefault:
-    scanInterval: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      iIcon: !<reference.SceneObject> a41e35b2-ca5d-4d8f-afaf-f4dc20d9119e
-      interactable: !<MappingBased.AssignableType> 2c726da7-30b6-4ef5-8b76-5c3d6ec9b319
-      textComponent: !<reference.Text> 19130143-8de2-4c51-bb45-337288e56b49
-      textBubbleContainer: !<reference.SceneObject> 07229d21-f154-4e7c-afc2-58c995add23e
-      cameraFeed: !<reference.Texture> 996c6f4e-b2ad-4117-9e3e-3db82e6e97f5
-      scanInterval: !<float> 5.000000
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/5d0fd01d-a7f6-432e-b50e-d0c6a689b942>
   PrefabRemaps:
     []
@@ -3568,10 +3547,10 @@
     - c251baf5-d168-458b-9c66-cb0a26347aec: d4314e47-2008-4275-a5ff-6db8d36fe503
     - f03365c5-6e80-4fbb-bff7-cf536a116d93: ae1cb9c8-a78d-4173-7e2c-762257e85b82
   Name: i
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 70.000000, y: 0.000000, z: -50.000000}
+    Position: {x: 30.000000, y: 0.000000, z: -50.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 10.000000, y: 2.500000, z: 10.000000}
     HasSegmentScaleCompensation: false
@@ -3631,7 +3610,7 @@
   RotationTension: 30.000000
   ForceCompound: false
   Intangible: false
-  ShowCollider: true
+  ShowCollider: false
 - !<SceneObject/a6e08c81-0c2c-405a-910c-e84c2cffda67>
   PrefabRemaps:
     []
@@ -4784,6 +4763,27 @@
     - !<own> 7dbdd563-5651-4640-8d68-0be06bbb0b57
   Components:
     - !<own> b426d87f-c8a6-47bf-a64e-7be86f43921d
+- !<ScriptComponent/d1dd9098-01be-4da1-9147-7be1d1d376ed>
+  PrefabRemaps:
+    []
+  Name: showFeedback
+  Enabled: true
+  ScriptAsset: !<reference> 099b64a3-7f57-4e99-8108-5a6014438b83
+  ScriptInputsDefault:
+    scanInterval: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      iIcon: !<reference.SceneObject> a41e35b2-ca5d-4d8f-afaf-f4dc20d9119e
+      interactable: !<MappingBased.AssignableType> 2c726da7-30b6-4ef5-8b76-5c3d6ec9b319
+      textComponent: !<reference.Text> 19130143-8de2-4c51-bb45-337288e56b49
+      textBubbleContainer: !<reference.SceneObject> 07229d21-f154-4e7c-afc2-58c995add23e
+      cameraFeed: !<reference.Texture> 923415f5-4245-4675-ade1-6d69d6d23e71
+      scanInterval: !<float> 5.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/d3340ef4-90e8-49c1-aeb6-4194ed9937f9>
   PrefabRemaps:
     []
@@ -5350,7 +5350,7 @@
   Children:
     []
   Components:
-    - !<own> 5c599666-945a-4bc6-a928-3308639e847f
+    - !<own> d1dd9098-01be-4da1-9147-7be1d1d376ed
 - !<SceneObject/eb54f6c3-e0f3-49eb-8a5a-5a087c648f8c>
   PrefabRemaps:
     []

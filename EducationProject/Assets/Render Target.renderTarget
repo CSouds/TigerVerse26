@@ -1,9 +1,9 @@
 - !<RenderTarget/923415f5-4245-4675-ade1-6d69d6d23e71>
   PackagePath: ""
-  UseScreenResolution: true
+  UseScreenResolution: false
   Resolution:
-    x: 900
-    y: 1600
+    x: 1
+    y: 1
   ResolutionScale: 1.000000
   AntialiasingMode: Disabled
   AntialiasingQuality: Ultra

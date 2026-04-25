@@ -24,6 +24,8 @@ export class ShowFeedback extends BaseScriptComponent {
 
     private isChecking: boolean = false;
     private latestFeedback: string = "";
+    private consecutiveFailures: number = 0;
+    private scanDisabled: boolean = false;
 
     onAwake() {
         if (this.iIcon) {
@@ -86,20 +88,40 @@ export class ShowFeedback extends BaseScriptComponent {
     }
 
     async performContinuousScan() {
-        if (this.isChecking) return;
+        if (this.isChecking || this.scanDisabled) return;
         this.isChecking = true;
         print("[Scan] Capturing frame and sending to AI...");
 
         try {
+            if (!this.cameraFeed) {
+                print("[Scan] Aborted: cameraFeed is not assigned.");
+                return;
+            }
+
+            const tex = this.cameraFeed as any;
+            const w = typeof tex.getWidth === "function" ? tex.getWidth() : 0;
+            const h = typeof tex.getHeight === "function" ? tex.getHeight() : 0;
+            print("[Scan] cameraFeed size: " + w + "x" + h);
+            if (!w || !h) {
+                print("[Scan] Aborted: cameraFeed has zero size (not ready yet).");
+                return;
+            }
+
+            print("[Scan] Encoding frame to JPG base64...");
             const base64Image = await new Promise<string>((resolve, reject) => {
-                Base64.encodeTextureAsync(
-                    this.cameraFeed,
-                    (res: string) => resolve(res),
-                    () => reject("Camera frame encoding failed"),
-                    CompressionQuality.LowQuality,
-                    EncodingType.Jpg
-                );
+                try {
+                    Base64.encodeTextureAsync(
+                        this.cameraFeed,
+                        (res: string) => resolve(res),
+                        (err?: any) => reject("encodeTextureAsync failed: " + err),
+                        CompressionQuality.LowQuality,
+                        EncodingType.Jpg
+                    );
+                } catch (sync) {
+                    reject("encodeTextureAsync threw synchronously: " + sync);
+                }
             });
+            print("[Scan] Encoded " + base64Image.length + " chars.");
 
             const dataUri = `data:image/jpeg;base64,${base64Image}`;
 
@@ -135,8 +157,15 @@ export class ShowFeedback extends BaseScriptComponent {
                 this.showMistake(answer);
             }
 
+            this.consecutiveFailures = 0;
+
         } catch (error) {
-            print("[Scan] Error: " + error);
+            this.consecutiveFailures += 1;
+            print("[Scan] Error (" + this.consecutiveFailures + "): " + error);
+            if (this.consecutiveFailures >= 3) {
+                this.scanDisabled = true;
+                print("[Scan] Disabled after 3 consecutive failures.");
+            }
         } finally {
             this.isChecking = false;
         }
