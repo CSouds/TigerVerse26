@@ -9,6 +9,7 @@
     - !<own> a41e35b2-ca5d-4d8f-afaf-f4dc20d9119e
     - !<own> b6b5959b-7cd5-4929-9a3c-e6f5474c1156
     - !<own> 5463213f-579e-4b53-8c5c-a662c38e0871
+    - !<own> e9bd57da-5a93-4c5a-afd4-b7e72264f599
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -696,27 +697,6 @@
     - !<own> 4d75f471-9b48-4b6f-aa35-ecb1d7d4c0fb
   Components:
     []
-- !<ScriptComponent/1441b341-c8ee-4a01-9a54-a0d39e3ed9b2>
-  PrefabRemaps:
-    []
-  Name: showFeedback
-  Enabled: true
-  ScriptAsset: !<reference> 099b64a3-7f57-4e99-8108-5a6014438b83
-  ScriptInputsDefault:
-    scanInterval: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      iIcon: !<reference.SceneObject> a41e35b2-ca5d-4d8f-afaf-f4dc20d9119e
-      interactable: !<MappingBased.AssignableType> 2c726da7-30b6-4ef5-8b76-5c3d6ec9b319
-      textComponent: !<reference.Text> 19130143-8de2-4c51-bb45-337288e56b49
-      textBubbleContainer: !<reference.SceneObject> 07229d21-f154-4e7c-afc2-58c995add23e
-      cameraFeed: !<reference.Texture> 996c6f4e-b2ad-4117-9e3e-3db82e6e97f5
-      scanInterval: !<float> 5.000000
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/18c6646c-d787-40eb-b594-cb83f8a4ee95>
   PrefabRemaps:
     []
@@ -2408,6 +2388,27 @@
     - !<own> eeefed81-5683-4d40-9498-fd8984e6e8f6
   Components:
     []
+- !<ScriptComponent/5c599666-945a-4bc6-a928-3308639e847f>
+  PrefabRemaps:
+    []
+  Name: showFeedback
+  Enabled: true
+  ScriptAsset: !<reference> 099b64a3-7f57-4e99-8108-5a6014438b83
+  ScriptInputsDefault:
+    scanInterval: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      iIcon: !<reference.SceneObject> a41e35b2-ca5d-4d8f-afaf-f4dc20d9119e
+      interactable: !<MappingBased.AssignableType> 2c726da7-30b6-4ef5-8b76-5c3d6ec9b319
+      textComponent: !<reference.Text> 19130143-8de2-4c51-bb45-337288e56b49
+      textBubbleContainer: !<reference.SceneObject> 07229d21-f154-4e7c-afc2-58c995add23e
+      cameraFeed: !<reference.Texture> 996c6f4e-b2ad-4117-9e3e-3db82e6e97f5
+      scanInterval: !<float> 5.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/5d0fd01d-a7f6-432e-b50e-d0c6a689b942>
   PrefabRemaps:
     []
@@ -3582,7 +3583,6 @@
     - !<own> c251baf5-d168-458b-9c66-cb0a26347aec
     - !<own> a5b966d3-a4b2-4eed-bf25-a8279255d1d7
     - !<own> 2c726da7-30b6-4ef5-8b76-5c3d6ec9b319
-    - !<own> 1441b341-c8ee-4a01-9a54-a0d39e3ed9b2
 - !<SceneObject/a4be667c-356e-4cf4-81ef-21e3e55cb1c2>
   PrefabRemaps:
     []
@@ -5336,6 +5336,21 @@
     []
   Components:
     []
+- !<SceneObject/e9bd57da-5a93-4c5a-afd4-b7e72264f599>
+  PrefabRemaps:
+    []
+  Name: FeedBackController
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 5c599666-945a-4bc6-a928-3308639e847f
 - !<SceneObject/eb54f6c3-e0f3-49eb-8a5a-5a087c648f8c>
   PrefabRemaps:
     []
