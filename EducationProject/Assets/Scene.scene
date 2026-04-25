@@ -8,6 +8,7 @@
     - !<own> 3f373d4c-559e-4111-b706-be527fa15270
     - !<own> a41e35b2-ca5d-4d8f-afaf-f4dc20d9119e
     - !<own> b6b5959b-7cd5-4929-9a3c-e6f5474c1156
+    - !<own> 04ba9bdf-c169-4fb2-86b4-99d27a1e534f
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -225,6 +226,21 @@
     - !<own> 7f5fe347-83fa-489d-9653-f629b6833fb9
   Components:
     []
+- !<SceneObject/04ba9bdf-c169-4fb2-86b4-99d27a1e534f>
+  PrefabRemaps:
+    []
+  Name: hudController
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e3281a51-fe49-4ee1-aa12-a04842c89f2b
 - !<SceneObject/04c2beda-4182-4b4f-8d7c-5caf67ef33bb>
   PrefabRemaps:
     []
@@ -5234,6 +5250,25 @@
     - !<own> 5a2ca1a2-f292-4079-aebb-f491bb9f5bf5
   Components:
     []
+- !<ScriptComponent/e3281a51-fe49-4ee1-aa12-a04842c89f2b>
+  PrefabRemaps:
+    []
+  Name: palmToggle
+  Enabled: true
+  ScriptAsset: !<reference> 0373fa06-b7a9-4706-9a97-64bd55e69aa0
+  ScriptInputsDefault:
+    facingThreshold: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      hudContainer: !<reference.SceneObject> c5b84679-75a9-4c01-9000-309fbce4e5bc
+      palmCenter: !<reference.SceneObject> 2b48df55-44c4-4516-b674-91f4c5d5481b
+      cameraObject: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      facingThreshold: -0.500000
+  ScriptTypes:
+    "":
+      {}
 - !<DeviceTracking/e5553c8a-0b7e-4ef4-92d9-3e1318fb82c1>
   PrefabRemaps:
     []

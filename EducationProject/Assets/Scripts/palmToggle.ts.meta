@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/59a5c8e9-efd0-4db1-b5dc-fa092b3f8e00>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 0373fa06-b7a9-4706-9a97-64bd55e69aa0
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 0373fa06-b7a9-4706-9a97-64bd55e69aa0
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 09161da4-ff77-4092-9ad4-847c2e2acef5
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/09161da4-ff77-4092-9ad4-847c2e2acef5>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 83eff867-933f-45d9-916f-cd1f6f911eac
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    cameraObject: false
+    facingThreshold: false
+    hudContainer: false
+    palmCenter: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - hudContainer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      palmCenter: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      cameraObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      facingThreshold: -0.500000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input SceneObject hudContainer
+    - // @input SceneObject palmCenter
+    - // @input SceneObject cameraObject
+    - // @input float facingThreshold = -0.5
