@@ -4779,7 +4779,7 @@
       interactable: !<MappingBased.AssignableType> 2c726da7-30b6-4ef5-8b76-5c3d6ec9b319
       textComponent: !<reference.Text> 19130143-8de2-4c51-bb45-337288e56b49
       textBubbleContainer: !<reference.SceneObject> 07229d21-f154-4e7c-afc2-58c995add23e
-      cameraFeed: !<reference.Texture> 923415f5-4245-4675-ade1-6d69d6d23e71
+      cameraFeed: !<reference.Texture> 7d170971-9e17-49ab-a94d-b5a158b98bc1
       scanInterval: !<float> 5.000000
   ScriptTypes:
     "":
