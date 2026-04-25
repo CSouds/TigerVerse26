@@ -997,7 +997,7 @@
   Enabled: true
   ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
   ScriptInputsDefault:
-    targetingMode: true
+    targetingVisual: true
     ignoreInteractionPlane: true
     keepHoverOnTrigger: true
     enableInstantDrag: true
@@ -1012,8 +1012,8 @@
     {}
   ScriptInputs:
     "":
-      targetingMode: !<float> 3.000000
-      targetingVisual: !<float> 2.000000
+      targetingMode: !<float> 1.000000
+      targetingVisual: !<float> 1.000000
       ignoreInteractionPlane: false
       keepHoverOnTrigger: false
       enableInstantDrag: false
@@ -3439,7 +3439,7 @@
     - c251baf5-d168-458b-9c66-cb0a26347aec: d4314e47-2008-4275-a5ff-6db8d36fe503
     - f03365c5-6e80-4fbb-bff7-cf536a116d93: ae1cb9c8-a78d-4173-7e2c-762257e85b82
   Name: i
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 70.000000, y: 0.000000, z: -50.000000}
@@ -3494,15 +3494,15 @@
     Axis: Y
     Length: 6.000000
     Radius: 1.000000
-  Matter: !<reference> 00000000-0000-0000-0000-000000000000
-  Filter: !<reference> 00000000-0000-0000-0000-000000000000
-  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
-  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  Matter: !<reference> 21bef1e6-9d29-47ad-affb-98f919f8a8d7
+  Filter: !<reference> 1b3e6764-0189-4b7d-b33a-e6299a196285
+  OverlapFilter: !<reference> 1b3e6764-0189-4b7d-b33a-e6299a196285
+  WorldSettings: !<reference> 396e588a-ff5d-41c9-ab5d-52370d207bc7
   EnableSmoothing: false
   PositionTension: 30.000000
   RotationTension: 30.000000
   ForceCompound: false
-  Intangible: true
+  Intangible: false
   ShowCollider: true
 - !<SceneObject/a6e08c81-0c2c-405a-910c-e84c2cffda67>
   PrefabRemaps:
@@ -5438,8 +5438,8 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: -0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
