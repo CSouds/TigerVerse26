@@ -4,18 +4,6 @@
     - !<own> 2122ad25-f960-489d-aaa4-857e06a9fdbb
 - !<PassInfo/2122ad25-f960-489d-aaa4-857e06a9fdbb>
   CachedProperties:
-    - Port_Default_N204:
-        typeIdx: 1
-        value: 0.000000
-    - Port_Default_N369:
-        typeIdx: 5
-        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-    - PreviewEnabled:
-        typeIdx: 0
-        value: 0
-    - baseColor:
-        typeIdx: 5
-        value: {x: 1.000000, y: 0.149126, z: 0.000000, w: 1.000000}
     - baseTex:
         typeIdx: 9
         value:
