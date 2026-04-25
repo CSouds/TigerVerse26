@@ -4,30 +4,7 @@
     - !<own> 2122ad25-f960-489d-aaa4-857e06a9fdbb
 - !<PassInfo/2122ad25-f960-489d-aaa4-857e06a9fdbb>
   CachedProperties:
-    - baseTex:
-        typeIdx: 9
-        value:
-          id: 306dc317-d963-4b29-9fea-e78e172387dc
-          sampler:
-            filteringMode: Trilinear
-            wrapModeU: Repeat
-            wrapModeV: Repeat
-            wrapModeW: Repeat
-            borderColor: {x: 0.000000, y: 0.000000, z: 0.000000, w: 0.000000}
-            mipmaps: false
-          type: Texture2D
-    - uv2Offset:
-        typeIdx: 3
-        value: {x: 1.000000, y: 1.000000}
-    - uv2Scale:
-        typeIdx: 3
-        value: {x: 1.000000, y: 1.000000}
-    - uv3Offset:
-        typeIdx: 3
-        value: {x: 1.000000, y: 1.000000}
-    - uv3Scale:
-        typeIdx: 3
-        value: {x: 1.000000, y: 1.000000}
+    []
   DepthWrite: true
   DepthTest: true
   DepthFunction: LessEqual
@@ -40,9 +17,9 @@
   InstanceCount: 1
   Defines:
     - NODE_13_DROPLIST_ITEM 0
+    - NODE_27_DROPLIST_ITEM 0
     - NODE_49_DROPLIST_ITEM 0
     - NODE_69_DROPLIST_ITEM 0
-    - NODE_27_DROPLIST_ITEM 0
   BlendMode: Disabled
   Properties:
     Port_Default_N204:
@@ -57,4 +34,4 @@
     baseColor:
       typeIdx: 5
       value: {x: 1.000000, y: 0.149126, z: 0.000000, w: 1.000000}
-  Pass: !<reference> ed2f28f7-3839-4be3-9150-5f16b8e3307f
+  Pass: !<reference> c83855d2-8940-4e55-87ec-f3a0bdee6f0f
