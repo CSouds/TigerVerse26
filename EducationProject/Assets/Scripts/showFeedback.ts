@@ -124,6 +124,8 @@ export class ShowFeedback extends BaseScriptComponent {
                 temperature: 0.2,
             });
 
+            print("[Raw API Payload] " + JSON.stringify(response, null, 2));
+
             const answer = response?.choices?.[0]?.message?.content?.trim() ?? "CORRECT";
             print("[Scan] AI Response: " + answer);
 
