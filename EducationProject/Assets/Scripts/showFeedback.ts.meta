@@ -1,0 +1,50 @@
+- !<AssetImportMetadata/97fa7b35-35c6-4b78-b92c-832c2d639033>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 099b64a3-7f57-4e99-8108-5a6014438b83
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 099b64a3-7f57-4e99-8108-5a6014438b83
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 8c9537ab-b781-486d-9569-8d6ae4786da6
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/8c9537ab-b781-486d-9569-8d6ae4786da6>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: c1fb16f0-4804-4cd3-a658-e7215c902d6f
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    interactable: false
+    textBubbleContainer: false
+    textComponent: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - interactable: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      textComponent: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      textBubbleContainer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input AssignableType interactable
+    - // @input Component.Text textComponent
+    - // @input SceneObject textBubbleContainer
