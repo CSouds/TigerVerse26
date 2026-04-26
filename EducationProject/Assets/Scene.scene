@@ -462,6 +462,23 @@
     - !<own> 0f704a07-d079-4984-9aaf-bf4a989b3490
   Components:
     []
+- !<ScriptComponent/110b53ea-df59-423e-9fca-9f196d5cb2f0>
+  PrefabRemaps:
+    []
+  Name: Selector
+  Enabled: true
+  ScriptAsset: !<reference> 9f48df5c-b5da-45c1-ba0a-65f7db95882f
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      textOutput: !<reference.Text> 873d65d8-6010-4473-9d77-094793d746f7
+      modeStateController: !<MappingBased.AssignableType> 838819ae-cf98-4398-a7ad-a9c0dd6f1f31
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/11fcf3ea-da8b-4694-80a7-167693341344>
   PrefabRemaps:
     []
@@ -1491,6 +1508,7 @@
       imageSmallerDimension: !<float> 512.000000
       cameraId: !<float> 0.000000
       mode: Tutoring
+      modeStateController: !<MappingBased.AssignableType_1> 838819ae-cf98-4398-a7ad-a9c0dd6f1f31
       debugStage: !<float> 3.000000
   ScriptTypes:
     "":
@@ -4111,8 +4129,6 @@
     _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
-    addCallbacks: true
-    triggerUpCallbacks: true
     triggerDownCallbacks: true
     onValueChangeCallbacks: true
     onFinishedCallbacks: true
@@ -4128,9 +4144,10 @@
       _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
-      addCallbacks: false
+      addCallbacks: true
       triggerUpCallbacks:
-        []
+        - scriptComponent: !<reference.ScriptComponent> 110b53ea-df59-423e-9fca-9f196d5cb2f0
+          functionName: nextOption
       triggerDownCallbacks:
         []
       onValueChangeCallbacks:
@@ -4476,6 +4493,7 @@
   Components:
     - !<own> 0da0e2ba-75e5-4ebc-b41c-734d19685dcb
     - !<own> 838819ae-cf98-4398-a7ad-a9c0dd6f1f31
+    - !<own> 110b53ea-df59-423e-9fca-9f196d5cb2f0
 - !<Text/c7c22234-ae96-4e3d-8489-bc019255eeed>
   PrefabRemaps:
     []
@@ -5583,8 +5601,6 @@
     _shadowPositionOffset: true
     _toggleable: true
     _defaultToOn: true
-    addCallbacks: true
-    triggerUpCallbacks: true
     triggerDownCallbacks: true
     onValueChangeCallbacks: true
     onFinishedCallbacks: true
@@ -5600,9 +5616,10 @@
       _shadowPositionOffset: !<Vec3> {x: 0.050000, y: -0.050000, z: -0.010000}
       _toggleable: false
       _defaultToOn: false
-      addCallbacks: false
+      addCallbacks: true
       triggerUpCallbacks:
-        []
+        - scriptComponent: !<reference.ScriptComponent> 110b53ea-df59-423e-9fca-9f196d5cb2f0
+          functionName: previousOption
       triggerDownCallbacks:
         []
       onValueChangeCallbacks:

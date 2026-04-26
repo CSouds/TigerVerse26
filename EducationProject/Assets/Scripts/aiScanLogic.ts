@@ -35,6 +35,11 @@ export class AiScanLogic extends BaseScriptComponent {
     mode: string = "Tutoring";
 
     @input
+    @hint("Optional TrackState script (uses getMode() each scan if assigned).")
+    @allowUndefined
+    modeStateController?: any;
+
+    @input
     @hint("Debug stage: 0=timer only, 1=capture only, 2=capture+encode only, 3=full pipeline")
     debugStage: number = 3;
 
@@ -97,8 +102,10 @@ export class AiScanLogic extends BaseScriptComponent {
             }
 
             const dataUri = `data:image/jpeg;base64,${base64Image}`;
+            const effectiveMode = this.resolveMode();
+            print("[AI Scan] Using mode: " + effectiveMode);
             print("[AI Scan] Sending request to OpenAI...");
-            const answer = await this.requestAiFeedback(dataUri, this.mode);
+            const answer = await this.requestAiFeedback(dataUri, effectiveMode);
             this.deliverAnswer(answer);
             this.consecutiveFailures = 0;
         } catch (error) {
@@ -175,11 +182,12 @@ export class AiScanLogic extends BaseScriptComponent {
     }
 
     private buildSystemPrompt(mode: string): string {
+        print(mode);
         if (mode === "Tutoring") {
-            return "You are a math tutor in Tutoring mode. Review the math in the provided image. If there is a mistake, point to what is wrong and explain WHY it's wrong to help guide the student. Do NOT provide an answer. Only point to where the user went wrong. If the math is correct, reply with \"CORRECT\" only.";
+            return "You are a math tutor. Review the math in the provided image. If there is a mistake, point to what is wrong and explain WHY it's wrong to help guide the student. Do NOT provide an answer to the math problem. Only point to where the user went wrong. If the math is correct, reply with \"CORRECT\" only.";
         }
         if (mode === "Checking") {
-            return "You are a math tutor in Checking mode. Review the math in the provided image. If there is a mistake, point out WHERE there is an error (be concise). Do NOT explain why it is wrong, only where. If the math is correct, reply with \"CORRECT\" only.";
+            return "You are a phd level math professor. Review the math in th provided image. If there is a mistake or you do not see any math, repy with \"WRONG\", otherwise reply with \"CORRECT\"";
         }
         if (mode === "Answer Key") {
             return "You are a math tutor in Answer Key mode. Review the math in the provided image. If there is a mistake, give the FULL correct answer showing all steps. If the math is correct, reply with \"CORRECT\" only.";
@@ -211,6 +219,21 @@ export class AiScanLogic extends BaseScriptComponent {
         if (this.cameraId === 1) return CameraModule.CameraId.Left_Color;
         if (this.cameraId === 2) return CameraModule.CameraId.Right_Color;
         return CameraModule.CameraId.Default_Color;
+    }
+
+    private resolveMode(): string {
+        try {
+            const controller = this.modeStateController as any;
+            if (controller && typeof controller.getMode === "function") {
+                const stateMode = String(controller.getMode() ?? "").trim();
+                if (stateMode.length > 0) {
+                    return stateMode;
+                }
+            }
+        } catch (error) {
+            print("[AI Scan] modeStateController.getMode failed: " + String(error ?? ""));
+        }
+        return String(this.mode ?? "Tutoring").trim() || "Tutoring";
     }
 
     private getInternetStatusLabel(): string {

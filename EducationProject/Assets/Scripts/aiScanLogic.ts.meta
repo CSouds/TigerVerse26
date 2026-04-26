@@ -32,6 +32,7 @@
     imageSmallerDimension: false
     initialScanDelay: false
     mode: false
+    modeStateController: false
     scanInterval: false
   ScriptTypesHidden:
     {}
@@ -48,6 +49,7 @@
       imageSmallerDimension: !<float> 512.000000
       cameraId: !<float> 0.000000
       mode: Tutoring
+      modeStateController: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
       debugStage: !<float> 3.000000
   ScriptTypes:
     -
@@ -59,4 +61,5 @@
     - '// @input float imageSmallerDimension = 512 {"hint":"Capture size for the smaller axis (e.g. 512)."}'
     - '// @input float cameraId {"hint":"Camera to use for still capture.", "widget":"combobox", "values":[{"label":"Default Color", "value":0}, {"label":"Left Color", "value":1}, {"label":"Right Color", "value":2}]}'
     - '// @input string mode = "Tutoring" {"hint":"Mode: Tutoring, Checking, or Answer Key."}'
+    - '// @input AssignableType_1 modeStateController {"hint":"Optional TrackState script (uses getMode() each scan if assigned)."}'
     - '// @input float debugStage = 3 {"hint":"Debug stage: 0=timer only, 1=capture only, 2=capture+encode only, 3=full pipeline"}'

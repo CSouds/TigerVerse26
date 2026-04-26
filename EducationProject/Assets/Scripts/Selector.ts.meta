@@ -26,6 +26,7 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    modeStateController: false
     textOutput: false
   ScriptTypesHidden:
     {}
@@ -37,8 +38,10 @@
     []
   DefaultScriptInputs:
     - textOutput: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      modeStateController: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input Component.Text textOutput
+    - '// @input AssignableType modeStateController {"hint":"Optional TrackState script to persist selected mode."}'
