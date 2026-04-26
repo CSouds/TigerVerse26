@@ -26,11 +26,8 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
-    cameraFeed: false
     iIcon: false
     interactable: false
-    mode: false
-    scanInterval: false
     textBubbleContainer: false
     textComponent: false
   ScriptTypesHidden:
@@ -46,9 +43,6 @@
       interactable: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
       textComponent: !<reference.Text> 00000000-0000-0000-0000-000000000000
       textBubbleContainer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
-      cameraFeed: !<reference.Texture> 00000000-0000-0000-0000-000000000000
-      scanInterval: !<float> 5.000000
-      mode: Tutoring
   ScriptTypes:
     -
       {}
@@ -57,6 +51,3 @@
     - // @input AssignableType interactable
     - // @input Component.Text textComponent
     - // @input SceneObject textBubbleContainer
-    - // @input Asset.Texture cameraFeed
-    - '// @input float scanInterval = 5 {"hint":"Seconds between scans."}'
-    - '// @input string mode = "Tutoring" {"hint":"Mode: Tutoring (point to what is wrong and why), Checking (point out where there is an error), Answer Key (give the full answer)"}'

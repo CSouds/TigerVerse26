@@ -10,6 +10,8 @@
     - !<own> b6b5959b-7cd5-4929-9a3c-e6f5474c1156
     - !<own> 5463213f-579e-4b53-8c5c-a662c38e0871
     - !<own> e9bd57da-5a93-4c5a-afd4-b7e72264f599
+    - !<own> fa43cbed-e032-4747-9649-6ea5c044649b
+    - !<own> 848a8fa1-515d-46dd-9290-14406d867eaf
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -1466,6 +1468,33 @@
     - !<own> 1fbad860-d2cc-4f57-a307-5ac38abfa448
   Components:
     []
+- !<ScriptComponent/38e2e85f-8643-432e-bc82-b332bf0bca9e>
+  PrefabRemaps:
+    []
+  Name: aiScanLogic
+  Enabled: true
+  ScriptAsset: !<reference> 18eedbad-2bab-4ece-9db5-811322d177a3
+  ScriptInputsDefault:
+    scanInterval: true
+    initialScanDelay: true
+    imageSmallerDimension: true
+    cameraId: true
+    mode: true
+    debugStage: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      feedbackController: !<MappingBased.AssignableType> d1dd9098-01be-4da1-9147-7be1d1d376ed
+      scanInterval: !<float> 15.000000
+      initialScanDelay: !<float> 12.000000
+      imageSmallerDimension: !<float> 512.000000
+      cameraId: !<float> 0.000000
+      mode: Tutoring
+      debugStage: !<float> 3.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/3a4261f4-2931-43c1-9fdf-cceacb788e80>
   PrefabRemaps:
     []
@@ -1964,7 +1993,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: -50.000000}
+    Position: {x: 0.000000, y: 0.000000, z: -150.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
@@ -3128,6 +3157,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/848a8fa1-515d-46dd-9290-14406d867eaf>
+  PrefabRemaps:
+    []
+  Name: Screen Crop Texture
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 90c09dde-b01f-4fc0-b367-60d951f333c5
 - !<SceneObject/85b990fe-4a77-4e85-b87e-28981b812dd8>
   PrefabRemaps:
     []
@@ -3269,6 +3313,25 @@
     []
   Components:
     []
+- !<Image/90c09dde-b01f-4fc0-b367-60d951f333c5>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 06d10508-8358-44ef-b36e-2dcb30295faa
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/91191875-22ce-4150-892c-d780508fa8e5>
   PrefabRemaps:
     []
@@ -3547,7 +3610,7 @@
     - c251baf5-d168-458b-9c66-cb0a26347aec: d4314e47-2008-4275-a5ff-6db8d36fe503
     - f03365c5-6e80-4fbb-bff7-cf536a116d93: ae1cb9c8-a78d-4173-7e2c-762257e85b82
   Name: i
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 30.000000, y: 0.000000, z: -50.000000}
@@ -4770,8 +4833,7 @@
   Enabled: true
   ScriptAsset: !<reference> 099b64a3-7f57-4e99-8108-5a6014438b83
   ScriptInputsDefault:
-    scanInterval: true
-    mode: true
+    {}
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -4780,9 +4842,6 @@
       interactable: !<MappingBased.AssignableType> 2c726da7-30b6-4ef5-8b76-5c3d6ec9b319
       textComponent: !<reference.Text> 19130143-8de2-4c51-bb45-337288e56b49
       textBubbleContainer: !<reference.SceneObject> 07229d21-f154-4e7c-afc2-58c995add23e
-      cameraFeed: !<reference.Texture> 7d170971-9e17-49ab-a94d-b5a158b98bc1
-      scanInterval: !<float> 5.000000
-      mode: Tutoring
   ScriptTypes:
     "":
       {}
@@ -5718,6 +5777,21 @@
     - !<own> ffc64df6-1c36-40fe-aa2b-8bcbdda1d5ba
   Components:
     []
+- !<SceneObject/fa43cbed-e032-4747-9649-6ea5c044649b>
+  PrefabRemaps:
+    []
+  Name: aiScanLogicObject
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 38e2e85f-8643-432e-bc82-b332bf0bca9e
 - !<SceneObject/fc530e67-51dc-4b55-8306-a92acdd025f6>
   PrefabRemaps:
     []

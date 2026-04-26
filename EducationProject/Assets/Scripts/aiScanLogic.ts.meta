@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/7e204103-e78e-4fcc-b9aa-92a064d77701>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 18eedbad-2bab-4ece-9db5-811322d177a3
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 18eedbad-2bab-4ece-9db5-811322d177a3
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ca28ee27-2365-4c1e-aece-9956bd7ae71f
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ca28ee27-2365-4c1e-aece-9956bd7ae71f>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 5404c655-f059-4af0-8355-3dfeef19a3d8
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    cameraId: false
+    debugStage: false
+    feedbackController: false
+    imageSmallerDimension: false
+    initialScanDelay: false
+    mode: false
+    scanInterval: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - feedbackController: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      scanInterval: !<float> 15.000000
+      initialScanDelay: !<float> 12.000000
+      imageSmallerDimension: !<float> 512.000000
+      cameraId: !<float> 0.000000
+      mode: Tutoring
+      debugStage: !<float> 3.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input AssignableType feedbackController {"hint":"Where AI answers are sent. Assign ShowFeedback script component."}'
+    - '// @input float scanInterval = 15 {"hint":"Seconds between scans."}'
+    - '// @input float initialScanDelay = 12 {"hint":"Delay before first scan starts (seconds)."}'
+    - '// @input float imageSmallerDimension = 512 {"hint":"Capture size for the smaller axis (e.g. 512)."}'
+    - '// @input float cameraId {"hint":"Camera to use for still capture.", "widget":"combobox", "values":[{"label":"Default Color", "value":0}, {"label":"Left Color", "value":1}, {"label":"Right Color", "value":2}]}'
+    - '// @input string mode = "Tutoring" {"hint":"Mode: Tutoring, Checking, or Answer Key."}'
+    - '// @input float debugStage = 3 {"hint":"Debug stage: 0=timer only, 1=capture only, 2=capture+encode only, 3=full pipeline"}'
