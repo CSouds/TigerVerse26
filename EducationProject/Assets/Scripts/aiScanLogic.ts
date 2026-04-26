@@ -12,11 +12,11 @@ export class AiScanLogic extends BaseScriptComponent {
 
     @input
     @hint("Seconds between scans.")
-    scanInterval: number = 15.0;
+    scanInterval: number = 5.0;
 
     @input
     @hint("Delay before first scan starts (seconds).")
-    initialScanDelay: number = 12.0;
+    initialScanDelay: number = 5.0;
 
     @input
     @hint("Capture size for the smaller axis (e.g. 512).")
@@ -182,17 +182,73 @@ export class AiScanLogic extends BaseScriptComponent {
     }
 
     private buildSystemPrompt(mode: string): string {
-        print(mode);
         if (mode === "Tutoring") {
-            return "You are a math tutor. Review the math in the provided image. If there is a mistake, point to what is wrong and explain WHY it's wrong to help guide the student. Do NOT provide an answer to the math problem. Only point to where the user went wrong. If the math is correct, reply with \"CORRECT\" only.";
+            return `
+    You are reviewing handwritten or typed math in an image.
+    
+    Your output rules are strict:
+    - Reply with \"CORRECT\" ONLY if the visible math is perfectly correct OR it is fully unreadable.
+    - If you can make a best guess of what it says use your best judgement.
+    - Only if there is clearly visible math AND there is a definite mistake, explain where the mistake occurs and why it is wrong.
+    - Do NOT give the final answer to the problem.
+    - Do NOT solve the problem for the student.
+    - Do NOT say that you cannot see, read, or interpret the image.
+    - Do NOT mention image quality.
+    - Only use plain text.
+    - If the answer is CORRECT, do not say anything except the word in all caps CORRECT.
+    
+    Examples:
+    If the student writes "2 + 2 = 5", explain that the addition step is incorrect, but do not say the correct answer.
+    If the image has no readable math, reply only: CORRECT
+            `.trim();
         }
+    
         if (mode === "Checking") {
-            return "You are a phd level math professor. Review the math in th provided image. If there is a mistake or you do not see any math, repy with \"WRONG\", otherwise reply with \"CORRECT\"";
+            return `
+    You are a PhD-level math professor reviewing math in an image.
+    
+    Your output must be exactly one word:
+    CORRECT or WRONG
+    
+    Rules:
+    - Reply CORRECT only if the visible math is perfectly correct.
+    - Reply WRONG if there is a definite mathematical mistake in clearly visible math.
+    - Reply WRONG if there is no math visible.
+    - Reply WRONG if the math is unreadable, blurry, cropped, ambiguous, or incomplete.
+    - Do NOT explain your reasoning.
+    - Do NOT say that you cannot see, read, or interpret the image.
+    - Do NOT mention image quality.
+    - Do NOT use markdown.
+            `.trim();
         }
+    
         if (mode === "Answer Key") {
-            return "You are a math tutor in Answer Key mode. Review the math in the provided image. If there is a mistake, give the FULL correct answer showing all steps. If the math is correct, reply with \"CORRECT\" only.";
+            return `
+    You are a PhD-level math professor in Answer Key mode reviewing math in an image.
+    
+    Rules:
+    - If there is clearly visible math AND it contains a definite mistake, give the full correct solution with all steps.
+    - If all clearly visible math is correct, reply exactly: CORRECT
+    - If there is no math visible, reply exactly: CORRECT
+    - If the math is unreadable, blurry, cropped, ambiguous, or incomplete, reply exactly: CORRECT
+    - Do NOT say that you cannot see, read, or interpret the image.
+    - Do NOT mention image quality.
+    - Only use plain text.
+            `.trim();
         }
-        return "You are a math tutor. Review the math in the provided image. If the math is correct, or if there is no math visible, reply with the exact word: CORRECT.";
+    
+        return `
+    You are a math tutor reviewing math in an image.
+    
+    Rules:
+    - If there is clearly visible math and it is definitely incorrect, explain the mistake.
+    - If the math is correct, reply exactly: CORRECT
+    - If there is no math visible, reply exactly: CORRECT
+    - If the math is unreadable, blurry, cropped, ambiguous, or incomplete, reply exactly: CORRECT
+    - Do NOT say that you cannot see, read, or interpret the image.
+    - Do NOT mention image quality.
+    - Do NOT use markdown.
+        `.trim();
     }
 
     private deliverAnswer(answer: string): void {

@@ -64,12 +64,27 @@ export class ShowFeedback extends BaseScriptComponent {
         }
     }
 
+    private lastWasCorrect: boolean | null = null;
+    private lastExplanation: string = "";
     public handleAiAnswer(answer: string): void {
-        if (this.isCorrectResponse(answer)) {
+        const raw = (answer ?? "").trim();
+        const normalized = raw.toUpperCase().replace(/[.\s]/g, "");
+        const isCorrect = normalized === "CORRECT";
+        // repeated CORRECT => no UI churn
+        if (isCorrect) {
+            if (this.lastWasCorrect === true) return;
+            this.lastWasCorrect = true;
+            this.lastExplanation = "";
             this.clearMistake();
-        } else {
-            this.showMistake(answer);
+            return;
         }
+        // non-correct: update only when explanation changes
+        if (this.lastWasCorrect === false && raw === this.lastExplanation) {
+            return;
+        }
+        this.lastWasCorrect = false;
+        this.lastExplanation = raw;
+        this.showMistake(raw);
     }
 
     private isCorrectResponse(answer: string): boolean {

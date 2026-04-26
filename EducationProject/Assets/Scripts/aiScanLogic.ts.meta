@@ -56,8 +56,8 @@
       {}
   InputLines:
     - '// @input AssignableType feedbackController {"hint":"Where AI answers are sent. Assign ShowFeedback script component."}'
-    - '// @input float scanInterval = 15 {"hint":"Seconds between scans."}'
-    - '// @input float initialScanDelay = 12 {"hint":"Delay before first scan starts (seconds)."}'
+    - '// @input float scanInterval = 5 {"hint":"Seconds between scans."}'
+    - '// @input float initialScanDelay = 5 {"hint":"Delay before first scan starts (seconds)."}'
     - '// @input float imageSmallerDimension = 512 {"hint":"Capture size for the smaller axis (e.g. 512)."}'
     - '// @input float cameraId {"hint":"Camera to use for still capture.", "widget":"combobox", "values":[{"label":"Default Color", "value":0}, {"label":"Left Color", "value":1}, {"label":"Right Color", "value":2}]}'
     - '// @input string mode = "Tutoring" {"hint":"Mode: Tutoring, Checking, or Answer Key."}'
