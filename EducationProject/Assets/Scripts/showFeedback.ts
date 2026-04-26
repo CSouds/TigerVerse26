@@ -22,6 +22,10 @@ export class ShowFeedback extends BaseScriptComponent {
     @hint("Seconds between scans.")
     scanInterval: number = 5.0;
 
+    @input
+    @hint("Mode: Tutoring (point to what is wrong and why), Checking (point out where there is an error), Answer Key (give the full answer)")
+    mode: string = "Tutoring";
+
     private isChecking: boolean = false;
     private latestFeedback: string = "";
     private consecutiveFailures: number = 0;
@@ -114,7 +118,7 @@ export class ShowFeedback extends BaseScriptComponent {
             (base64Image: string) => {
                 print("[Scan] Encoded " + base64Image.length + " chars.");
                 const dataUri = `data:image/jpeg;base64,${base64Image}`;
-                this.sendToChatGPT(dataUri, (answer: string) => {
+                this.sendToChatGPT(dataUri, this.mode, (answer: string) => {
                     if (this.isCorrectResponse(answer)) {
                         this.clearMistake();
                     } else {
@@ -134,13 +138,23 @@ export class ShowFeedback extends BaseScriptComponent {
         );
     }
 
-    private sendToChatGPT(dataUri: string, callback: (response: string) => void) {
+    private sendToChatGPT(dataUri: string, mode: string, callback: (response: string) => void) {
+        let systemPrompt = "You are a math tutor. Review the math in the provided image. If the math is correct, or if there is no math visible, reply with the exact word: CORRECT.";
+        
+        if (mode === "Tutoring") {
+            systemPrompt = "You are a math tutor in Tutoring mode. Review the math in the provided image. If there is a mistake, point to what is wrong and explain WHY it's wrong to help guide the student. Do NOT provide an answer. Only give point to where the user went wrong. If the math is correct, reply with \"CORRECT\" only.";
+        } else if (mode === "Checking") {
+            systemPrompt = "You are a math tutor in Checking mode. Review the math in the provided image. If there is a mistake, point out WHERE there is an error (be concise). Do NOT explain why it is wrong, only where. If the math is correct, reply with \"CORRECT\" only.";
+        } else if (mode === "Answer Key") {
+            systemPrompt = "You are a math tutor in Answer Key mode. Review the math in the provided image. If there is a mistake, give the FULL correct answer showing all steps. If the math is correct, reply with \"CORRECT\" only.";
+        }
+
         OpenAI.chatCompletions({
             model: 'gpt-4o',
             messages: [
                 {
                     role: 'system',
-                    content: "You are a math tutor. Review the math in the provided image. If there is a mistake, reply ONLY with a short correction. If the math is correct, or if there is no math visible, reply with the exact word: CORRECT."
+                    content: systemPrompt
                 },
                 {
                     role: 'user',

@@ -29,6 +29,7 @@
     cameraFeed: false
     iIcon: false
     interactable: false
+    mode: false
     scanInterval: false
     textBubbleContainer: false
     textComponent: false
@@ -47,6 +48,7 @@
       textBubbleContainer: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       cameraFeed: !<reference.Texture> 00000000-0000-0000-0000-000000000000
       scanInterval: !<float> 5.000000
+      mode: Tutoring
   ScriptTypes:
     -
       {}
@@ -57,3 +59,4 @@
     - // @input SceneObject textBubbleContainer
     - // @input Asset.Texture cameraFeed
     - '// @input float scanInterval = 5 {"hint":"Seconds between scans."}'
+    - '// @input string mode = "Tutoring" {"hint":"Mode: Tutoring (point to what is wrong and why), Checking (point out where there is an error), Answer Key (give the full answer)"}'
